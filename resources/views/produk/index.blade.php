@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <div class="text-center mb-4">
-        <h3 class="fw-bold" style="color: #d6336c;">🎀 Daftar Produk Lucu</h3>
-        <p class="text-muted">Cek koleksi produk gemash yang siap dibeli pelanggan 💕</p>
+        <h3 class="fw-bold" style="color: #d6336c;">🎀 Daftar Produk</h3>
+        <p class="text-muted">Cek produk yang siap dibeli pelanggan 💕</p>
     </div>
 
     <div class="d-flex justify-content-end mb-3">
