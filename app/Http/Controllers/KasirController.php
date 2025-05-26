@@ -52,4 +52,5 @@ class KasirController extends Controller
         $kasir->delete();
         return redirect()->route('kasir.index')->with('success', 'Kasir berhasil dihapus.');
     }
+    
 }

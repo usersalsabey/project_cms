@@ -19,36 +19,42 @@
         </div>
     @endif
 
-    <div class="table-responsive">
-        <table class="table table-hover align-middle shadow-sm" style="border-radius: 20px; background-color: #fff0f5;">
-            <thead class="text-center" style="background-color: #ffc0cb; color: #fff;">
-                <tr>
-                    <th>🧸 Nama</th>
-                    <th>🧁 Kategori</th>
-                    <th>💸 Harga</th>
-                    <th>🔧 Aksi</th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                @foreach ($produks as $produk)
+    @if ($produks->count() > 0)
+        <div class="table-responsive">
+            <table class="table table-hover align-middle shadow-sm" style="border-radius: 20px; background-color: #fff0f5;">
+                <thead class="text-center" style="background-color: #ffc0cb; color: #fff;">
                     <tr>
-                        <td>{{ $produk->nama }}</td>
-                        <td>{{ $produk->kategori }}</td>
-                        <td>Rp {{ number_format($produk->harga, 0, ',', '.') }}</td>
-                        <td>
-                            <a href="{{ route('produk.show', $produk->id) }}" class="btn btn-info btn-sm rounded-pill">🔍 Detail</a>
-                            <a href="{{ route('produk.edit', $produk->id) }}" class="btn btn-warning btn-sm rounded-pill">✏️ Edit</a>
-                            <form action="{{ route('produk.destroy', $produk->id) }}" method="POST" class="d-inline">
-                                @csrf @method('DELETE')
-                                <button onclick="return confirm('Yakin mau hapus produk gemes ini? 🥺')" class="btn btn-danger btn-sm rounded-pill">
-                                    🗑️ Hapus
-                                </button>
-                            </form>
-                        </td>
+                        <th>🧸 Nama</th>
+                        <th>🧁 Kategori</th>
+                        <th>💸 Harga</th>
+                        <th>🔧 Aksi</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody class="text-center">
+                    @foreach ($produks as $produk)
+                        <tr>
+                            <td>{{ $produk->nama }}</td>
+                            <td>{{ $produk->kategori }}</td>
+                            <td>Rp {{ number_format($produk->harga, 0, ',', '.') }}</td>
+                            <td>
+                                <a href="{{ route('produk.show', $produk->id) }}" class="btn btn-info btn-sm rounded-pill">🔍 Detail</a>
+                                <a href="{{ route('produk.edit', $produk->id) }}" class="btn btn-warning btn-sm rounded-pill">✏️ Edit</a>
+                                <form action="{{ route('produk.destroy', $produk->id) }}" method="POST" class="d-inline">
+                                    @csrf @method('DELETE')
+                                    <button onclick="return confirm('Yakin mau hapus produk gemes ini? 🥺')" class="btn btn-danger btn-sm rounded-pill">
+                                        🗑️ Hapus
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    @else
+        <div class="text-center text-muted my-5">
+            <p>📦 Belum ada produk yang tersedia. Yuk tambahkan dulu!</p>
+        </div>
+    @endif
 </div>
 @endsection
